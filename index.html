@@ -952,6 +952,15 @@
         else if (itemStep < step) item.classList.add('step-item--completed');
       });
 
+      const chipScroller = document.querySelector('.sidebar-scroll');
+      const activeChip = document.querySelector('.step-item--current');
+      if (chipScroller && activeChip) {
+        chipScroller.scrollTo({
+          left: activeChip.offsetLeft - (chipScroller.clientWidth - activeChip.offsetWidth) / 2,
+          behavior: 'smooth'
+        });
+      }
+
       currentStep = step;
       updatePricing();
 
